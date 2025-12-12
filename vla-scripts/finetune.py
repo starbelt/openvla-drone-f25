@@ -273,6 +273,8 @@ def finetune(cfg: FinetuneConfig) -> None:
             mask = action_gt > action_tokenizer.action_token_begin_idx
 
             # Compute Accuracy
+            #print(f'\n-----------------------\nAction Predictions:\n {action_preds}\n-------------------------\n')
+            #print(f'\n-----------------------\nAction Ground Truth:\n {action_gt}\n-------------------------\n')          
             correct_preds = (action_preds == action_gt) & mask
             action_accuracy = correct_preds.sum().float() / mask.sum().float()
 
